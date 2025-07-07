@@ -5,7 +5,7 @@ export default function BackButton() {
 
   return (
     <button
-      onClick={() => router.push("/gallery")} //Go back to the previous page
+      onClick={() => router.push("/gallery")} //Go back to Gallery page
       style={{
         padding: "0.5rem 1rem",
         backgroundColor: "hotpink",

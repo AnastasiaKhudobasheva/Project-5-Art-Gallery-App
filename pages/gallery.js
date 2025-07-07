@@ -2,7 +2,7 @@
 import ArtPieceList from "../components/ArtPieceList";
 import useSWR from "swr";
 
-export default function GalleryPage() {
+export default function GalleryPage({ favorites, onToggleFavorite }) {
   const { data, error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art"
   );
@@ -24,7 +24,11 @@ export default function GalleryPage() {
   return (
     <div>
       <h1>Gallery</h1>
-      <ArtPieceList artPieces={data} />
+      <ArtPieceList
+        artPieces={data}
+        favorites={favorites}
+        onToggleFavorite={onToggleFavorite}
+      />
     </div>
   );
 }

@@ -10,8 +10,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import FavoriteButton from "./FavoriteButton";
 
-export default function ArtPiecePreview({ slug, image, title, artist }) {
+export default function ArtPiecePreview({
+  slug,
+  image,
+  title,
+  artist,
+  isLiked,
+  onToggleFavorite,
+}) {
   return (
     <div style={{ marginBottom: "2rem" }}>
       <Link href={`/art/${slug}`}>
@@ -25,6 +33,7 @@ export default function ArtPiecePreview({ slug, image, title, artist }) {
         <h2>{title}</h2>
       </Link>
       <p>by {artist}</p>
+      <FavoriteButton isLiked={isLiked} onToggleFavorite={onToggleFavorite} />
     </div>
   );
 }
