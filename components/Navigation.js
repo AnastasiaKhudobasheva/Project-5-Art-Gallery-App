@@ -10,9 +10,9 @@ export default function Navigation() {
         backgroundColor: "#eee",
       }}
     >
-      <Link href="/">Spotlight</Link>
-      <Link href="/gallery">Gallery</Link>
-      <Link href="/favorites">Favorites</Link>
+      <Link href="/">SPOTLIGHT</Link>
+      <Link href="/gallery">GALLERY</Link>
+      <Link href="/favorites">FAVORITES</Link>
     </nav>
   );
 }

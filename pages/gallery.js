@@ -37,7 +37,7 @@ export default function GalleryPage({ favorites, onToggleFavorite }) {
 
   return (
     <PageWrapper>
-      <h1>Gallery</h1>
+      <h1>GALLERY //</h1>
       <GalleryWrapper>
         <ArtPieceList
           artPieces={data}
