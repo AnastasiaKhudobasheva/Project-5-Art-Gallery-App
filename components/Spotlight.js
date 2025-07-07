@@ -20,9 +20,9 @@ import Link from "next/link";
 const SpotlightWrapper = styled.section`
   padding: 2rem;
   text-align: center;
-  background-color: rgb(221, 217, 218);
+  background-color: rgb(231, 231, 231);
   margin: 1rem auto;
-  max-width: 600px;
+  max-width: 450px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -71,7 +71,7 @@ export default function Spotlight({ onToggleFavorite, artPieces, favorites }) {
 
   return (
     <SpotlightWrapper>
-      <Heading>🎯 Spotlight</Heading>
+      <Heading>SPOTLIGHT //</Heading>
 
       <Link href={`/art/${slug}`} passHref>
         <div>
