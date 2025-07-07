@@ -9,18 +9,21 @@
 // }
 
 import Image from "next/image";
+import Link from "next/link";
 
-export default function ArtPiecePreview({ image, title, artist }) {
+export default function ArtPiecePreview({ slug, image, title, artist }) {
   return (
     <div style={{ marginBottom: "2rem" }}>
-      <Image
-        src={image}
-        alt={title}
-        width={300}
-        height={300}
-        style={{ objectFit: "contain" }}
-      />
-      <h2>{title}</h2>
+      <Link href={`/art/${slug}`}>
+        <Image
+          src={image}
+          alt={title}
+          width={300}
+          height={300}
+          style={{ objectFit: "contain" }}
+        />
+        <h2>{title}</h2>
+      </Link>
       <p>by {artist}</p>
     </div>
   );
