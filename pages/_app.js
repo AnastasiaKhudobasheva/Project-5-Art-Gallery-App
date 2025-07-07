@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import { SWRConfig } from "swr";
 import Navigation from "@/components/Navigation";
+import { useState } from "react";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
@@ -9,6 +10,15 @@ const fetcher = async (url) => {
 };
 
 export default function App({ Component, pageProps }) {
+  const [favorites, setFavorites] = useState([]);
+
+  const onToggleFavorite = (slug) => {
+    setFavorites((current) =>
+      current.includes(slug)
+        ? current.filter((s) => s !== slug)
+        : [...current, slug]
+    );
+  };
   return (
     <SWRConfig
       value={{
@@ -18,7 +28,11 @@ export default function App({ Component, pageProps }) {
     >
       <>
         <GlobalStyle />
-        <Component {...pageProps} />
+        <Component
+          {...pageProps}
+          favorites={favorites}
+          onToggleFavorite={onToggleFavorite}
+        />
         <Navigation />
       </>
     </SWRConfig>
@@ -33,3 +47,7 @@ export default function App({ Component, pageProps }) {
 //Safer: it catches HTTP errors explicitly = app won’t treat an error page as valid data
 // SWR (or any consumer) can handle the error properly
 // Easier to debug issues since it throws errors early
+
+//
+
+//State management shall happen in App.js

@@ -1,8 +1,22 @@
 // import { useEffect, useState } from "react";
 import ArtPieceList from "../components/ArtPieceList";
 import useSWR from "swr";
+import styled from "styled-components";
 
-export default function GalleryPage() {
+const PageWrapper = styled.div`
+  padding: 2rem;
+  text-align: center; /* centers the heading */
+`;
+
+const GalleryWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centers children horizontally */
+  gap: 2rem; /* space between items */
+  padding: 2rem;
+`;
+
+export default function GalleryPage({ favorites, onToggleFavorite }) {
   const { data, error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art"
   );
@@ -22,9 +36,15 @@ export default function GalleryPage() {
   //   }, []);
 
   return (
-    <div>
+    <PageWrapper>
       <h1>Gallery</h1>
-      <ArtPieceList artPieces={data} />
-    </div>
+      <GalleryWrapper>
+        <ArtPieceList
+          artPieces={data}
+          favorites={favorites}
+          onToggleFavorite={onToggleFavorite}
+        />
+      </GalleryWrapper>
+    </PageWrapper>
   );
 }
