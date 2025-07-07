@@ -1,5 +1,5 @@
 // import { useEffect, useState } from "react";
-import ArtPiecePreview from "../components/ArtPiecePreview";
+import ArtPieceList from "../components/ArtPieceList";
 import useSWR from "swr";
 
 export default function GalleryPage() {
@@ -24,14 +24,7 @@ export default function GalleryPage() {
   return (
     <div>
       <h1>Gallery</h1>
-      {data.map((piece) => (
-        <ArtPiecePreview
-          key={piece.slug}
-          image={piece.imageSource}
-          title={piece.name}
-          artist={piece.artist}
-        />
-      ))}
+      <ArtPieceList artPieces={data} />
     </div>
   );
 }
