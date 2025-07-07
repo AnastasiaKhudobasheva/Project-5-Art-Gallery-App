@@ -1,11 +1,10 @@
-import Image from "next/image";
 import FavoriteButton from "./FavoriteButton";
 import { getRandomIndex } from "@/lib/random";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-//COMP LOGIC:
+//COMPONENT LOGIC:
 
 //Data Source: Spotlight comp	receives full artPieces array as a prop from index.js
 //Random Logic:	Using getRandomIndex() from lib/random.js
@@ -20,36 +19,48 @@ import Link from "next/link";
 const SpotlightWrapper = styled.section`
   padding: 2rem;
   text-align: center;
-  background-color: rgb(231, 231, 231);
-  margin: 1rem auto;
-  max-width: 450px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+  margin: 2rem auto;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
 `;
 
 const StyledImage = styled.img`
   width: 100%;
   height: auto;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.01);
+  }
 `;
 
 const Heading = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 1.2rem;
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
 `;
 
 const Title = styled.h3`
   text-decoration: underline;
   color: #003366;
+  margin-top: 1rem;
   cursor: pointer;
+`;
+
+const Artist = styled.p`
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: #444;
 `;
 
 const FavoriteWrapper = styled.div`
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 12px;
+  right: 12px;
   z-index: 1;
 `;
 
@@ -80,9 +91,9 @@ export default function Spotlight({ onToggleFavorite, artPieces, favorites }) {
         </div>
       </Link>
 
-      <p>
+      <Artist>
         <strong>By:</strong> {artist}
-      </p>
+      </Artist>
 
       <FavoriteWrapper>
         <FavoriteButton

@@ -5,6 +5,7 @@ import styled from "styled-components";
 const PageWrapper = styled.div`
   padding: 2rem;
   text-align: center;
+  padding-bottom: 5rem; // extra space so content doesn't go under nav
 `;
 
 const GalleryWrapper = styled.div`
