@@ -1,8 +1,15 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import ArtPieceDetail from "@/components/ArtPieceDetail";
-
 import BackButton from "@/components/BackButton";
+import styled from "styled-components";
+
+const DetailWrapper = styled.div`
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+`;
 
 export default function ArtPieceDetailPage() {
   const router = useRouter();
@@ -21,9 +28,9 @@ export default function ArtPieceDetailPage() {
   if (!piece) return <div>Art piece not found</div>;
 
   return (
-    <div>
+    <DetailWrapper>
       <ArtPieceDetail piece={piece} />
       <BackButton />
-    </div>
+    </DetailWrapper>
   );
 }

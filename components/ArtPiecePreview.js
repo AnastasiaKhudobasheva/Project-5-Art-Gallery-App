@@ -1,13 +1,3 @@
-// export default function ArtPiecePreview({ image, title, artist }) {
-//   return (
-//     <div style={{ marginBottom: "2rem" }}>
-//       <img src={image} alt={title} style={{ maxWidth: "300px" }} />
-//       <h2>{title}</h2>
-//       <p>by {artist}</p>
-//     </div>
-//   );
-// }
-
 import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "./FavoriteButton";
@@ -17,17 +7,22 @@ import styled from "styled-components";
 
 // Wrapper for the entire preview block
 const PreviewWrapper = styled.div`
-  position: relative;
   margin-bottom: 2rem;
+  position: relative;
   width: 320px;
-  border: 1px solid #eee;
+  border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
 `;
 
-// Floating button wrapper (top-right corner)
+// Floating heart icon (top-right corner)
 const FloatingButtonWrapper = styled.div`
   position: absolute;
   top: 8px;
@@ -35,18 +30,25 @@ const FloatingButtonWrapper = styled.div`
   z-index: 1;
 `;
 
+// Text content container
 const ContentWrapper = styled.div`
   padding: 1rem;
   text-align: center;
 `;
 
+// Title styling
 const Title = styled.h2`
+  font-size: 1.2rem;
   margin: 0.5rem 0 0.2rem;
+  color: #003366;
+  text-decoration: underline;
 `;
 
+// Artist styling
 const Artist = styled.p`
   color: #666;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
   text-align: center;
 `;
 

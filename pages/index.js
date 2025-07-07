@@ -1,5 +1,12 @@
 import useSWR from "swr";
 import Spotlight from "../components/Spotlight";
+import styled from "styled-components";
+
+const PageWrapper = styled.div`
+  padding: 2rem;
+  padding-bottom: 5rem; // space for sticky bottom nav
+  text-align: center;
+`;
 
 export default function SpotlightPage({ favorites, onToggleFavorite }) {
   const { data, error, isLoading } = useSWR(
@@ -17,12 +24,13 @@ export default function SpotlightPage({ favorites, onToggleFavorite }) {
   // const piece = data[randomIndex];
 
   return (
-    <div>
+    <PageWrapper>
+      {" "}
       <Spotlight
         artPieces={data}
         favorites={favorites}
         onToggleFavorite={onToggleFavorite}
       />
-    </div>
+    </PageWrapper>
   );
 }
