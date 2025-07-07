@@ -1,6 +1,20 @@
 // import { useEffect, useState } from "react";
 import ArtPieceList from "../components/ArtPieceList";
 import useSWR from "swr";
+import styled from "styled-components";
+
+const PageWrapper = styled.div`
+  padding: 2rem;
+  text-align: center; /* centers the heading */
+`;
+
+const GalleryWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centers children horizontally */
+  gap: 2rem; /* space between items */
+  padding: 2rem;
+`;
 
 export default function GalleryPage({ favorites, onToggleFavorite }) {
   const { data, error, isLoading } = useSWR(
@@ -22,13 +36,15 @@ export default function GalleryPage({ favorites, onToggleFavorite }) {
   //   }, []);
 
   return (
-    <div>
+    <PageWrapper>
       <h1>Gallery</h1>
-      <ArtPieceList
-        artPieces={data}
-        favorites={favorites}
-        onToggleFavorite={onToggleFavorite}
-      />
-    </div>
+      <GalleryWrapper>
+        <ArtPieceList
+          artPieces={data}
+          favorites={favorites}
+          onToggleFavorite={onToggleFavorite}
+        />
+      </GalleryWrapper>
+    </PageWrapper>
   );
 }
