@@ -1,4 +1,12 @@
 import ArtPiecePreview from "./ArtPiecePreview";
+import styled from "styled-components";
+
+const ListWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+`;
 
 export default function ArtPieceList({
   artPieces,
@@ -6,7 +14,7 @@ export default function ArtPieceList({
   onToggleFavorite,
 }) {
   return (
-    <div>
+    <ListWrapper>
       {artPieces.map((piece) => (
         <ArtPiecePreview
           key={piece.slug}
@@ -18,6 +26,6 @@ export default function ArtPieceList({
           onToggleFavorite={() => onToggleFavorite(piece.slug)}
         />
       ))}
-    </div>
+    </ListWrapper>
   );
 }

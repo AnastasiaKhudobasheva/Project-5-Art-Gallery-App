@@ -14,6 +14,9 @@ const GalleryWrapper = styled.div`
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
+  //responsive constraint
+  max-width: 100%; //stops flex from blowing out on small screens
+  box-sizing: border-box; //ensures padding doesn’t push content wider than screen
 `;
 
 export default function FavoritesPage({ favorites, onToggleFavorite }) {
