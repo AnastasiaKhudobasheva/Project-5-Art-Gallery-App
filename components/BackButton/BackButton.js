@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import { ArrowLeft } from "lucide-react";
 
+//STYLING:
+
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -33,6 +35,8 @@ const Button = styled.button`
     stroke-width: 2.5;
   }
 `;
+
+//FUNCTION:
 
 export default function BackButton() {
   const router = useRouter();

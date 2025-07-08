@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import ArtPieceDetail from "@/components/ArtPieceDetail";
-import BackButton from "@/components/BackButton";
+import BackButton from "@/components/BackButton/BackButton";
 import styled from "styled-components";
 
 const DetailWrapper = styled.div`
