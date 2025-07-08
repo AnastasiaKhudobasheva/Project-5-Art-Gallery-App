@@ -9,7 +9,8 @@ import styled from "styled-components";
 const PreviewWrapper = styled.div`
   margin-bottom: 2rem;
   position: relative;
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -70,9 +71,15 @@ export default function ArtPiecePreview({
         <Image
           src={image}
           alt={title}
-          width={320}
-          height={320}
-          style={{ objectFit: "cover", display: "block" }}
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto",
+            objectFit: "cover",
+            display: "block",
+          }}
         />
         <ContentWrapper>
           <Title>{title}</Title>
