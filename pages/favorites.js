@@ -31,7 +31,7 @@ export default function FavoritesPage({ favorites, onToggleFavorite }) {
     <PageWrapper>
       <h1>FAVORITES //</h1>
       {favoritePieces.length === 0 ? (
-        <p>No favorite art pieces yet //</p>
+        <p>No favorite art pieces yet</p>
       ) : (
         <GalleryWrapper>
           <ArtPieceList
