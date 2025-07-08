@@ -1,7 +1,13 @@
 import { Heart } from "lucide-react";
 import styled from "styled-components";
 
-const Button = styled.button`
+//React tries to pass props(isLiked) to the real HTMP component <button>
+//we need to stop passing that prop to the DOM, otherwise gives warning
+//wrap it in .withConfig so React knows isLiked is just for styling, not to pass it to the real <button> element
+
+const Button = styled.button.withConfig({
+  shouldForwardProp: (prop) => prop !== "isLiked",
+})`
   width: 40px;
   height: 40px;
   border-radius: 50%;
