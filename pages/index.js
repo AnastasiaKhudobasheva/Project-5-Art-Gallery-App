@@ -25,7 +25,6 @@ export default function SpotlightPage({ favorites, onToggleFavorite }) {
 
   return (
     <PageWrapper>
-      {" "}
       <Spotlight
         artPieces={data}
         favorites={favorites}

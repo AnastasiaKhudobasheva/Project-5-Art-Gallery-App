@@ -1,4 +1,3 @@
-// import { useEffect, useState } from "react";
 import ArtPieceList from "../components/ArtPieceList";
 import useSWR from "swr";
 import styled from "styled-components";
@@ -11,8 +10,9 @@ const PageWrapper = styled.div`
 
 const GalleryWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* centers children horizontally */
+  flex-direction: column; /* stack children vertically */
+  align-items: center; /* center the column horizontally */
+  /* flex-wrap: wrap; */
   gap: 2rem; /* space between items */
   padding: 2rem;
 `;
@@ -24,17 +24,6 @@ export default function GalleryPage({ favorites, onToggleFavorite }) {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Failed to load art pieces</div>;
-
-  //   const [artPieces, setArtPieces] = useState([]);
-
-  //   useEffect(() => {
-  //     async function fetchArt() {
-  //       const response = await fetch("https://example-apis.vercel.app/api/art");
-  //       const data = await response.json();
-  //       setArtPieces(data);
-  //     }
-  //     fetchArt();
-  //   }, []);
 
   return (
     <PageWrapper>
