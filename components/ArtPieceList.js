@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const ListWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column; /* stack vertically */
+  align-items: center; /* center cards horizontally */
   gap: 2rem;
 `;
 
